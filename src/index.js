@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import data from './data/users.json';
 
 class Board extends React.Component {
   constructor(props) {
@@ -74,9 +75,49 @@ class Game extends React.Component {
   }
 }
 
+// User object includes: 
+// name: string, companyName: string,  signUpDate: Date, 
+// lastVisitDate: Date, email: string, and phone: string. 
+class UserListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.name = String(props.user_data.name);
+    this.companyName = String(props.user_data.companyName);
+    this.signUpDate = new Date(props.user_data.signUpDate);
+    this.lastVisitDate = new Date(props.user_data.lastVisitDate);
+    this.email = String(props.user_data.email);
+    this.phone= String(props.user_data.phone);
+  }
+
+  render() {
+    // User Item in List
+    return (
+      <li>{this.name}</li>
+    );
+  }
+}
+
+class UserList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.users = props.users;
+    this.user_components = this.users.map((user) =>
+      <UserListItem user_data={user} />
+    );
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.user_components}
+      </ul>
+    );
+  }
+}
+
 // ================================
 
 ReactDOM.render(
-  <Game />,
+  <UserList users={data.users} />,
   document.getElementById('root')
 );
