@@ -1,0 +1,26 @@
+{
+  "users":[
+    {
+      "name":"Matthew Ham",
+      "companyName":"Ryerson University",
+      "signUpDate":"Jan 26, 2020",
+      "lastVisitDate":"Jan 27, 2020",
+      "email":"matthewham6@gmail.com",
+      "phone":"18002983982"
+    }, {
+      "name":"Joe Smith",
+      "companyName":"Independent",
+      "signUpDate":"Jan 24, 2020",
+      "lastVisitDate":"Jan 27, 2020",
+      "email":"joe@gmail.com",
+      "phone":"9058282922"
+    }, {
+      "name":"Jane Doe",
+      "companyName":"Independent",
+      "signUpDate":"Jan 24, 2020",
+      "lastVisitDate":"Jan 28, 2020",
+      "email":"jane@gmail.com",
+      "phone":"41682882828"
+    }
+  ]
+}
