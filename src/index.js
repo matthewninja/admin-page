@@ -78,7 +78,7 @@ class Game extends React.Component {
 // User object includes: 
 // name: string, companyName: string,  signUpDate: Date, 
 // lastVisitDate: Date, email: string, and phone: string. 
-class UserListItem extends React.Component {
+class UserTableItem extends React.Component {
   constructor(props) {
     super(props);
     this.name = String(props.user_data.name);
@@ -92,7 +92,14 @@ class UserListItem extends React.Component {
   render() {
     // User Item in List
     return (
-      <li>{this.name}</li>
+      <tr>
+        <td>{this.name}</td>
+        <td>{this.companyName}</td>
+        <td>{this.signUpDate.toLocaleString()}</td>
+        <td>{this.lastVisitDate.toLocaleString()}</td>
+        <td>{this.email}</td>
+        <td>{this.phone}</td>
+      </tr>
     );
   }
 }
@@ -102,15 +109,27 @@ class UserList extends React.Component {
     super(props);
     this.users = props.users;
     this.user_components = this.users.map((user) =>
-      <UserListItem user_data={user} />
+      <UserTableItem user_data={user} key={user.phone}/>
     );
   }
 
   render() {
     return (
-      <ul>
-        {this.user_components}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company Name</th>
+            <th>Sign Up Date</th>
+            <th>Last Visit Date</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.user_components}
+        </tbody>
+      </table>
     );
   }
 }
